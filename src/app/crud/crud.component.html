@@ -1,27 +1,14 @@
-<div class="card">
-  <div class="card-body">
-    <form [formGroup]="angForm" novalidate>
-      <div class="form-group">
-        <label class="col-md-4">First Name</label>
-        <input type="text" class="form-control"  formControlName="first_name" />
-      </div>
-      <div *ngIf="angForm.controls['first_name'].invalid && (angForm.controls['first_name'].dirty || angForm.controls['first_name'].touched)" class="alert alert-danger">
-        <div *ngIf="angForm.controls['first_name'].errors.required">
-          First name is required.
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-md-4">Last Name </label>
-        <input type="text" class="form-control" formControlName="last_name" />
-      </div>
-      <div *ngIf="angForm.controls['last_name'].invalid && (angForm.controls['last_name'].dirty || angForm.controls['last_name'].touched)" class="alert alert-danger">
-        <div *ngIf="angForm.controls['last_name'].errors.required">
-          Last name is required.
-        </div>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary" [disabled]="angForm.pristine ||angForm.invalid">Add User</button>
-      </div>
-    </form>
+<div class="text-right">
+  <button (click)="isCreate = !isCreate" class="btn btn-primary text-right">{{isCreate ? 'Close Panel' : 'Add New Employee'}}</button>
+</div>
+<div class="row">
+  <div class="{{isCreate ? 'col-md-8' : isUpdate ?  'col-md-8' : 'col-md-12' }}">
+    <app-list></app-list>
+  </div>
+  <div *ngIf="isCreate" class="{{isCreate ? 'col-md-4' : '' }}" style="margin-top: 50px">
+    <app-create></app-create>
+  </div>
+  <div *ngIf="isUpdate" class="{{isUpdate ? 'col-md-4' : '' }}">
+    <app-update></app-update>
   </div>
 </div>

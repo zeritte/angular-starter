@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-crud',
@@ -8,17 +7,10 @@ import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 })
 export class CrudComponent implements OnInit {
 
-  angForm: FormGroup;
-  constructor(private fb: FormBuilder) {
-    this.createForm();
-  }
+  isCreate = false;
+  isUpdate = false;
 
-  createForm() {
-    this.angForm = this.fb.group({
-      first_name: ['', Validators.required ],
-      last_name: ['', Validators.required ]
-    });
-  }
+  constructor() {}
 
   ngOnInit() {
   }
