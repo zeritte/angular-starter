@@ -29,7 +29,7 @@ export class CreateComponent implements OnInit {
     this.employee = this.angForm.value;
 
     this.es.addEmployee(this.employee).subscribe(result => {
-      console.log(result);
+      this.es.fetchEmployees();
     });
   }
 

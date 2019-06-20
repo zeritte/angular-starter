@@ -11,6 +11,7 @@ import {EmployeeActionsService} from './employee-actions.service';
 import {CreateComponent} from './create/create.component';
 import {UpdateComponent} from './update/update.component';
 import {ListComponent} from './list/list.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {ListComponent} from './list/list.component';
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [EmployeeActionsService],
   bootstrap: [AppComponent]

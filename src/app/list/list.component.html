@@ -1,5 +1,16 @@
-<div class="row">
-  <div>
-    List will come here!
-  </div>
-</div>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr mdbTableCol *ngFor="let el of employeeList">
+    <th scope="row">{{el.id}}</th>
+    <td>{{el.firstname}}</td>
+    <td>{{el.lastname}}</td>
+    <td>{{el.created_at}}</td>
+    <td><button class="btn btn-info">edit</button> | <button class="btn btn-warning">delete</button></td>
+  </tr>
+  </tbody>
+</table>

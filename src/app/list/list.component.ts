@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {EmployeeActionsService} from '../employee-actions.service';
-import {Employee} from '../Employee';
-
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -9,7 +7,8 @@ import {Employee} from '../Employee';
 })
 export class ListComponent implements OnInit {
 
-  public employee: Employee;
+  employeeList: any;
+  headElements = ['ID', 'First Name', 'Last Name', 'Created At', 'Links'];
 
   constructor(private es: EmployeeActionsService) {
     this.fetchEmployees();
@@ -17,7 +16,7 @@ export class ListComponent implements OnInit {
 
   fetchEmployees() {
     this.es.fetchEmployees().subscribe(result => {
-      console.log(result);
+      this.employeeList = result;
     });
   }
 
