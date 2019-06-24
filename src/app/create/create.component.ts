@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {EmployeeActionsService} from '../employee-actions.service';
-import {Employee} from '../Employee';
+import {Employee} from '../model/Employee';
 
 @Component({
   selector: 'app-create',
@@ -9,6 +9,8 @@ import {Employee} from '../Employee';
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
+
+  @Output() reloadEvent: EventEmitter<number> = new EventEmitter();
 
   angForm: FormGroup;
 
@@ -29,7 +31,7 @@ export class CreateComponent implements OnInit {
     this.employee = this.angForm.value;
 
     this.es.addEmployee(this.employee).subscribe(result => {
-      this.es.fetchEmployees();
+      this.reloadEvent.emit();
     });
   }
 

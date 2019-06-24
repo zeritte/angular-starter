@@ -5,13 +5,14 @@ import {HttpClientModule} from '@angular/common/http';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {CrudComponent} from './crud/crud.component';
 
 import {EmployeeActionsService} from './employee-actions.service';
 import {CreateComponent} from './create/create.component';
 import {UpdateComponent} from './update/update.component';
 import {ListComponent} from './list/list.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonToggleModule} from '@angular/material';
+import {CrudComponent} from './crud/crud.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonToggleModule
   ],
   providers: [EmployeeActionsService],
   bootstrap: [AppComponent]

@@ -1,14 +1,14 @@
 <div class="text-right">
-  <button (click)="isCreate = !isCreate" class="btn btn-primary text-right">{{isCreate ? 'Close Panel' : 'Add New Employee'}}</button>
+  <button (click)="panelSwitch()" class="btn btn-primary text-right">{{isUpdate ? 'Close Panel' : isCreate ? 'Close Panel' : 'Add New'  }}</button>
 </div>
 <div class="row">
   <div class="{{isCreate ? 'col-md-8' : isUpdate ?  'col-md-8' : 'col-md-12' }}">
-    <app-list></app-list>
+    <app-list (updateEvent)="receiveUpdate($event)"></app-list>
   </div>
-  <div *ngIf="isCreate" class="{{isCreate ? 'col-md-4' : '' }}" style="margin-top: 50px">
-    <app-create></app-create>
+  <div *ngIf="isCreate" class="{{isCreate ? 'col-md-4' : '' }}">
+    <app-create (reloadEvent)="reloadItems()" ></app-create>
   </div>
   <div *ngIf="isUpdate" class="{{isUpdate ? 'col-md-4' : '' }}">
-    <app-update></app-update>
+    <app-update [id]="updateID" [isOpen]="isUpdate"></app-update>
   </div>
 </div>

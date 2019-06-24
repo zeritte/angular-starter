@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { CrudComponent } from './crud/crud.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {CrudComponent} from './crud/crud.component';
 
 const routes: Routes = [
   {

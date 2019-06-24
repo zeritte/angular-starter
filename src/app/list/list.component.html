@@ -5,12 +5,24 @@
   </tr>
   </thead>
   <tbody>
-  <tr mdbTableCol *ngFor="let el of employeeList">
-    <th scope="row">{{el.id}}</th>
-    <td>{{el.firstname}}</td>
-    <td>{{el.lastname}}</td>
-    <td>{{el.created_at}}</td>
-    <td><button class="btn btn-info">edit</button> | <button class="btn btn-warning">delete</button></td>
+  <tr mdbTableCol *ngFor="let employee of employees">
+    <th scope="row">{{employee.id}}</th>
+    <td>{{employee.firstName}}</td>
+    <td>{{employee.lastName}}</td>
+    <td>{{employee.createdDate}}</td>
+    <td>
+      <button (click)="update(employee.id)" class="btn btn-info">edit</button>
+    </td>
+    <td>
+      <div class="custom-control custom-switch">
+      <mat-button-toggle class="custom-control-input"
+                         id="customSwitches"
+                         [checked]="employee.enabled"
+                         (change)="checkValue(employee.enabled ? 'A' : 'B')">
+      </mat-button-toggle>
+      <label class="custom-control-label" for="customSwitches">Active?</label>
+      </div>
+    </td>
   </tr>
   </tbody>
 </table>
